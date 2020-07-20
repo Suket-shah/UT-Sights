@@ -1,0 +1,18 @@
+{
+  "manifest_version": 2,
+  "name": "UT Sights",
+  "description": "Get closer to the UT campus while distancing from home",
+  "version": "0.1",
+  "chrome_url_overrides": {
+    "newtab": "index.html"
+  },
+  "browser_action": {
+    "default_popup": "popup.html"
+  },
+  "content_security_policy": "script-src 'self' https://apis.google.com; object-src 'self'",
+  "icons": {
+    "16": "img/16 UT Sights Icon.png",
+    "48": "img/48 UT Sights Icon 2.png",
+    "128": "img/128 UT Sights Icon.png"
+  }
+}

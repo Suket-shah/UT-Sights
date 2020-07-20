@@ -1,0 +1,333 @@
+/* todo fix glitchy weather search bar top right
+*/
+
+:root {
+  --main-text-color: #ffffff;
+  --weather-input-bg: #808080;
+  --burnt-orange: #cc5500;
+  --dark-gray: #505050;
+  --splash-gray: #282828;
+  --black-opactiy: rgba(0, 0, 0, 0.6);
+  --dark-red: #dc143c;
+  --maroon-red: #800000;
+}
+
+* {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+body {
+  font-family: 'Quicksand', sans-serif;
+  overflow: hidden;
+  background-size: cover;
+  color: var(--main-text-color);
+  text-shadow: 0px 0px 10px var(--dark-gray);
+}
+
+hr {
+  opacity: 0.5;
+}
+
+::placeholder {
+  font-family: 'Quicksand', sans-serif;
+  color: var(--main-text-color);
+}
+
+/* name screen */
+.ask-name {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+  display: none;
+  text-align: center;
+  vertical-align: middle;
+}
+.ask-name-cover {
+  margin-top: 37vh;
+}
+
+.ask-name-title {
+  font-size: 5em;
+}
+
+.ask-name-input {
+  background-color: var(--black-opactiy);
+  color: var(--main-text-color);
+  border: none;
+  /* border-bottom: 2px solid var(--burnt-orange); */
+  border-radius: 5px;
+  text-align: center;
+  font-size: 5em;
+  padding-left: 10px;
+  margin-top: 0.5em;
+}
+
+.ask-name-input:focus {
+  outline: none;
+}
+
+.ask-name button {
+  height: 2em;
+}
+/* initial splash screen */
+
+.splash {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--splash-gray);
+  z-index: 200;
+}
+
+.splash.hide {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--dark-gray);
+  z-index: 200;
+  opacity: 0;
+  transition: all 750ms;
+}
+
+/* time content centered */
+.time-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.time {
+  font-size: 10em;
+  margin-bottom: rem;
+  cursor: default;
+}
+
+h2 {
+  font-size: 3em;
+  font-weight: 700;
+  margin-bottom: 8rem;
+}
+
+h3 {
+  font-size: 2em;
+  font-weight: 300;
+}
+
+/*weather styling */
+
+.weather {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+}
+
+#weather-input {
+  border: none;
+  background-color: var(--black-opactiy);
+  width: 10rem;
+  height: 2rem;
+  opacity: 0.75;
+  border-radius: 10px 1px 10px 1px;
+  padding-left: 10px;
+  color: var(--main-text-color);
+  font-family: 'Quicksand', sans-serif;
+  border-bottom: 5px solid var(--burnt-orange);
+}
+
+.city {
+  text-align: center;
+  font-weight: 600;
+  margin-top: -5px;
+}
+
+#weather-icon {
+  color: var(--main-text-color);
+  height: 2.5em;
+  width: auto;
+}
+
+#icon-temp-display {
+  display: flex;
+  flex-direction: row;
+}
+#weather-input:focus {
+  outline: none;
+}
+
+#farenheit {
+  font-size: 0.4em;
+  vertical-align: 80%;
+}
+
+/* .weather-display {
+  display: none;
+} */
+
+.invalid-zip {
+  background-color: var(--burnt-orange);
+  margin-right: 10px;
+  opacity: 0.75;
+  padding-left: 10px;
+  padding-bottom: 3px;
+  font-size: 0.9rem;
+  display: block; /* note this needs to be display block when turning it on */
+  transition: all 0.2s linear;
+}
+
+.hidden {
+  display: none;
+  z-index: -100;
+}
+
+.visuallyhidden {
+  opacity: 0;
+}
+
+.weather-settings {
+  background-color: var(--black-opactiy);
+  border-radius: 5px;
+  padding: 10px;
+  border: none;
+  margin-left: -53px;
+  margin-top: 10px;
+}
+
+button {
+  background-color: var(--burnt-orange);
+  color: var(--main-text-color);
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-top: 10px;
+}
+
+#checkbox {
+  margin-left: 25px;
+  background-color: black;
+}
+
+/* todo styling */
+.todo-complete {
+  color: var(--main-text-color);
+  position: absolute;
+  bottom: 50px;
+  left: 15px;
+  z-index: 2;
+  width: 20%;
+}
+.todo-caption {
+  position: absolute;
+  bottom: 15px;
+  left: 30px;
+  z-index: 2;
+  cursor: pointer;
+  -webkit-user-select: none;
+}
+.todo-title,
+.done-title {
+  margin: 0;
+}
+
+.todo-title {
+  font-size: 2rem;
+  line-height: normal;
+  cursor: default;
+}
+.todo-title-trash {
+  display: flex;
+  flex-direction: row;
+}
+.done-title {
+  font-size: 1.25rem;
+  cursor: default;
+  width: fit-content;
+}
+.todo-complete {
+  background-color: var(--black-opactiy);
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.todo-item {
+  cursor: pointer;
+  word-wrap: break-wordß;
+}
+
+.done-item {
+  cursor: pointer;
+}
+
+.done-item:hover {
+  color: #32cd32;
+}
+
+.todo-item:hover {
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+
+.done-title span {
+  position: relative;
+  color: var(--dark-red);
+  cursor: pointer;
+}
+
+.done-title span:hover {
+  color: var(--maroon-red);
+}
+
+#todo-input {
+  border: none;
+  border-bottom: 2px solid var(--main-text-color);
+  background-color: transparent;
+  outline: none;
+  color: var(--main-text-color);
+  width: 100%;
+}
+#todo-input::placeholder {
+  opacity: 0.6;
+}
+
+.picture-credits {
+  position: absolute;
+  left: 15px;
+  top: 15px;
+}
+
+.whole-pic-name {
+  margin: 0;
+  font-size: 1em;
+}
+
+@media only screen and (max-width: 850px) {
+  .time-content h3 {
+    display: none;
+  }
+
+  .todo-complete {
+    width: 50%;
+  }
+}
+
+@media only screen and (max-height: 400px) {
+  .time-content h1 {
+    display: none;
+  }
+  .time-content h2 {
+    padding-top: 75px;
+  }
+}

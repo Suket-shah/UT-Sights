@@ -1,0 +1,13 @@
+div {
+  background-color: #cc5500;
+  border-radius: 7px;
+  width: max-content;
+}
+
+a {
+  color: #ffffff;
+  font-size: 1.5em;
+  text-align: center;
+  text-decoration: none;
+  padding: 0 1rem;
+}
