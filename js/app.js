@@ -4,7 +4,8 @@ let name = document.querySelector('.name'),
   greeting = document.querySelector('.greeting'),
   splash = document.querySelector('.splash'),
   nameScreen = document.querySelector('.ask-name'),
-  nameInput = document.querySelector('.ask-name-input');
+  nameInput = document.querySelector('.ask-name-input'),
+  nameBtn = document.querySelector('.fa-check');
 
 let currTime = new Date();
 
@@ -22,12 +23,19 @@ function initialUserScreen() {
 
 nameInput.addEventListener('keyup', (e) => {
   if (e.keyCode === 13) {
-    console.log(nameInput.value);
     localStorage.setItem('name', nameInput.value);
     setName();
     localStorage.setItem('name-screen', 'true');
     nameScreen.style.display = 'none';
   }
+});
+
+nameBtn.addEventListener('click', (e) => {
+  console.log(nameInput.value);
+  localStorage.setItem('name', nameInput.value);
+  setName();
+  localStorage.setItem('name-screen', 'true');
+  nameScreen.style.display = 'none';
 });
 
 initialUserScreen();
@@ -56,7 +64,7 @@ function setInitTime() {
 function setBg() {
   let currDay = currTime.getDay();
   currDay = (currDay % 22) + 1;
-  document.body.style.backgroundImage = `url('../img/UT_Background/UT_Branded_9.jpg')`;
+  document.body.style.backgroundImage = `url('../img/UT_Background/UT_Branded_${currDay}.jpg')`;
   document.querySelector(
     '.ask-name'
   ).style.backgroundImage = `url('../img/UT_Background/UT_Branded_${currDay}.jpg')`;
@@ -136,22 +144,62 @@ setFocus();
 
 //Event listeners for both entries
 name.addEventListener('blur', (e) => {
-  localStorage.setItem('name', e.target.innerText);
+  if (e.target.innerText.trim() === '') {
+    localStorage.setItem('name', '[Enter Name]');
+  } else {
+    localStorage.setItem('name', e.target.innerText.trim());
+  }
   setName();
 });
+
 name.addEventListener('keyup', (e) => {
   if (e.keyCode === 13) {
-    localStorage.setItem('name', e.target.innerText);
+    if (e.target.innerText.trim() === '') {
+      localStorage.setItem('name', '[Enter Name]');
+    } else {
+      localStorage.setItem('name', e.target.innerText.trim());
+    }
     setName();
   }
 });
+
+// highlights all of the text
+function selectElemText(elem) {
+  let range = document.createRange();
+  range.selectNodeContents(elem);
+  let selection = window.getSelection();
+  selection.removeAllRanges();
+  selection.addRange(range);
+}
+
+name.addEventListener('click', (e) => {
+  selectElemText(name);
+});
+
 focusEntry.addEventListener('blur', (e) => {
-  localStorage.setItem('focus', e.target.innerText);
+  if (e.target.innerText.trim() === '') {
+    localStorage.setItem('focus', 'Enter Here');
+  } else {
+    localStorage.setItem('focus', e.target.innerText.trim());
+  }
   setFocus();
+  // localStorage.setItem('focus', e.target.innerText);
+  // setFocus();
 });
 focusEntry.addEventListener('keyup', (e) => {
   if (e.keyCode === 13) {
-    localStorage.setItem('focus', e.target.innerText);
+    if (e.target.innerText.trim() === '') {
+      localStorage.setItem('focus', 'Enter Here');
+    } else {
+      localStorage.setItem('focus', e.target.innerText.trim());
+    }
     setFocus();
   }
+  // if (e.keyCode === 13) {
+  //   localStorage.setItem('focus', e.target.innerText);
+  //   setFocus();
+  // }
+});
+focusEntry.addEventListener('click', (e) => {
+  selectElemText(focusEntry);
 });

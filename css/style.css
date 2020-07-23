@@ -49,6 +49,18 @@ hr {
   text-align: center;
   vertical-align: middle;
 }
+
+#name-form {
+  display: flex;
+  width: min-content;
+  margin: 0 auto;
+  background-color: var(--black-opactiy);
+  color: var(--main-text-color);
+  border: none;
+  border-radius: 5px;
+  height: 6em;
+}
+
 .ask-name-cover {
   margin-top: 37vh;
 }
@@ -58,15 +70,19 @@ hr {
 }
 
 .ask-name-input {
-  background-color: var(--black-opactiy);
+  background-color: transparent;
   color: var(--main-text-color);
   border: none;
   /* border-bottom: 2px solid var(--burnt-orange); */
-  border-radius: 5px;
+  /* border-radius: 5px; */
   text-align: center;
   font-size: 5em;
   padding-left: 10px;
-  margin-top: 0.5em;
+  margin: 10px 0;
+}
+
+.ask-name-input::placeholder {
+  opacity: 0.7;
 }
 
 .ask-name-input:focus {
@@ -74,8 +90,16 @@ hr {
 }
 
 .ask-name button {
-  height: 2em;
+  background-color: transparent;
+  margin-top: 5px;
 }
+
+#name-form i.fa.fa-check::before {
+  /* width: 100px !important;
+  height: 100px !important; */
+  font-size: 2em;
+}
+
 /* initial splash screen */
 
 .splash {
@@ -237,6 +261,10 @@ button {
   cursor: pointer;
   -webkit-user-select: none;
 }
+.todo-caption:hover {
+  transform: scale(1.1);
+}
+
 .todo-title,
 .done-title {
   margin: 0;
@@ -311,6 +339,15 @@ button {
 .whole-pic-name {
   margin: 0;
   font-size: 1em;
+  cursor: pointer;
+}
+
+.fa-facebook:hover {
+  transform: scale(1.1);
+}
+
+.fa-instagram:hover {
+  transform: scale(1.1);
 }
 
 @media only screen and (max-width: 850px) {

@@ -21,14 +21,16 @@
     <div class="ask-name">
       <div class="ask-name-cover">
         <h1 class="ask-name-title">Hello, what is your name?</h1>
-        <input
-          class="ask-name-input"
-          type="text"
-          maxlength="25"
-          autocomplete="false"
-          placeholder="Bevo"
-        />
-        <!-- <button><i class="fa fa-check"></i></button> -->
+        <div id="name-form">
+          <input
+            class="ask-name-input"
+            type="text"
+            maxlength="25"
+            autocomplete="false"
+            placeholder="Bevo"
+          />
+          <button><i class="fa fa-check"></i></button>
+        </div>
       </div>
     </div>
     <div class="splash"></div>
@@ -105,7 +107,7 @@
         />
       </div>
     </div>
-    <h3 class="todo-caption">Todo</h3>
+    <h3 class="todo-caption">To-do</h3>
     <div class="time-content">
       <h1 class="time">
         12:14:49 PM
@@ -119,7 +121,10 @@
       </h2>
       <h3>
         <span class="main-focus">What is your main focus today?</span><br />
-        <span class="focus-entry" contenteditable="true" spellcheck="false"
+        <span
+          class="focus-entry selectable"
+          contenteditable="true"
+          spellcheck="false"
           >Meet Matthew McConaughey</span
         >
       </h3>

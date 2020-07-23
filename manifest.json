@@ -11,8 +11,8 @@
   },
   "content_security_policy": "script-src 'self' https://apis.google.com; object-src 'self'",
   "icons": {
-    "16": "img/16 UT Sights Icon.png",
-    "48": "img/48 UT Sights Icon 2.png",
-    "128": "img/128 UT Sights Icon.png"
+    "16": "img/16icon.png",
+    "48": "img/64icon.png",
+    "128": "img/128icon.png"
   }
 }
