@@ -14,11 +14,11 @@ function initialUserScreen() {
     nameScreen.style.display = 'inline';
     // localStorage.setItem('name-screen', true);
   }
-  if (localStorage.getItem('zip-screen') === null) {
-    console.log('show zip screen');
-  } else {
-    console.log('dont show screen');
-  }
+  // if (localStorage.getItem('zip-screen') === null) {
+  //   console.log('show zip screen');
+  // } else {
+  //   console.log('dont show screen');
+  // }
 }
 
 nameInput.addEventListener('keyup', (e) => {
@@ -31,7 +31,6 @@ nameInput.addEventListener('keyup', (e) => {
 });
 
 nameBtn.addEventListener('click', (e) => {
-  console.log(nameInput.value);
   localStorage.setItem('name', nameInput.value);
   setName();
   localStorage.setItem('name-screen', 'true');
@@ -72,7 +71,9 @@ function setBg() {
 
 function setBackground() {
   let currhour = currTime.getHours();
-  if (currhour < 12) {
+  if (currhour < 4) {
+    greeting.textContent = 'Good Night,';
+  } else if (currhour < 12) {
     // document.body.style.backgroundImage = "url('../img/morning.jpg')";
     greeting.textContent = 'Good Morning,';
   } else if (currhour < 18) {
@@ -80,7 +81,7 @@ function setBackground() {
     greeting.textContent = 'Good Afternoon,';
   } else {
     // document.body.style.backgroundImage = "url('../img/night.jpg')";
-    greeting.textContent = 'Good Night,';
+    greeting.textContent = 'Good Evening,';
   }
 }
 setBackground();

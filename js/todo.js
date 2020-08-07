@@ -25,8 +25,6 @@ function populateTodo(todoType = 'todo', listType = todoCompleteList) {
         `<p class="${todoType}-item" id="item${index}">${val}</p>`
       );
     });
-  } else {
-    console.log('no items yet');
   }
 }
 
