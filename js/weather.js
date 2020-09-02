@@ -154,4 +154,4 @@ function displayTempError() {
   }, 2100);
 }
 setZip();
-setInterval(setZip, 60000);
+setInterval(setZip, 600000);
